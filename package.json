@@ -1,0 +1,24 @@
+{
+  "name": "sign-in-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start index.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kosuha/sign-in-boilerplate.git"
+  },
+  "author": "Seonho Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kosuha/sign-in-boilerplate/issues"
+  },
+  "homepage": "https://github.com/kosuha/sign-in-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pm2": "^4.5.5"
+  }
+}
