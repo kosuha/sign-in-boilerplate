@@ -19,6 +19,7 @@
   "homepage": "https://github.com/kosuha/sign-in-boilerplate#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.11.18",
     "pm2": "^4.5.5"
   }
 }
