@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const port = 80;
+const bodyParser = require('body-parser');
+const { User } = require('./models/User.js');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const conn = require('./conn/mongooseConnect.js');
 const mongoose = require('mongoose');
@@ -14,6 +19,19 @@ mongoose.connect(conn, {
 
 app.get('/', (request, response) => {
     response.send('hello react!');
+});
+
+app.post('/register', (request, response) => {
+    const user = new User(request.body);
+
+    user.save((error, userInfo) => {
+        if (error) {
+            return response.json({ success: false, error });
+        }
+        return response.status(200).json({
+            success: true
+        });
+    });
 });
 
 app.listen(port, () => {
