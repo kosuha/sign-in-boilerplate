@@ -2,14 +2,17 @@ const express = require('express');
 const app = express();
 const port = 80;
 const bodyParser = require('body-parser');
+
+const config = require('./config/key.js')
+
 const { User } = require('./models/User.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const conn = require('./conn/mongooseConnect.js');
+const conn = require('./config/dev.js');
 const mongoose = require('mongoose');
-mongoose.connect(conn, {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
