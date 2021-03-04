@@ -34,7 +34,7 @@ userSchema.pre('save', (next) => {
 
     // password가 변경 될 때만 암호화
     if (user.isModified('password')) {
-        bycrypt.genSalt(saltRounds, (error, salt) => {
+        bcrypt.genSalt(saltRounds, (error, salt) => {
             if (error) return next(error);
 
             bcrypt.hash(user.password, salt, (error, hash) => {
